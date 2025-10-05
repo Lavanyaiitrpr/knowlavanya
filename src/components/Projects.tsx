@@ -11,7 +11,8 @@ const Projects = () => {
       description: [
         "Designed a hybrid option pricing framework combining Black-Scholes-Merton and Heston models, with dynamic switching based on market regimes detected via unsupervised Hidden Markov Models (HMM).",
         "Empirically validated model-switching logic, achieving a substantial RMSE reduction in volatile regimes (BSM: 44.97 → Heston: 39.21), while maintaining optimal performance in stable regimes (RMSE: 35.32)."
-      ]
+      ],
+      github: "https://github.com/lahanelavanya/Hybrid-Option-Pricing"
     },
     {
       title: "Reinforcement Learning for Portfolio Optimisation",
@@ -20,7 +21,8 @@ const Projects = () => {
       description: [
         "Engineered a custom gym.Env for portfolio optimization and trained a Proximal Policy Optimization (PPO) agent via Stable-Baselines3, utilizing a Sortino ratio-based reward function to drive risk-adjusted outperformance.",
         "Achieved 19381% cumulative return over traditional benchmarks using a rolling-window backtesting framework (126-day training, 21-day testing) across historical market regimes."
-      ]
+      ],
+      github: "https://github.com/lahanelavanya/RL-Portfolio-Optimization"
     },
     {
       title: "Black-Litterman Portfolio Optimisation with ML-Based View",
@@ -29,7 +31,8 @@ const Projects = () => {
       description: [
         "Formulated an advanced Black-Litterman model with Random Forest regression, optimizing 30 NIFTY 50 stocks using a 5% risk-free rate and 0.1% transaction costs, achieving a 0.02 RMSE for accurate predictive views.",
         "Optimized portfolio weights via quadratic utility maximization, ensuring stable, diversified allocations with enhanced performance and market equilibrium balance."
-      ]
+      ],
+      github: "https://github.com/lahanelavanya/Black-Litterman-ML"
     }
   ];
 
@@ -52,9 +55,20 @@ const Projects = () => {
             <Card key={index} className="shadow-lg border-border hover:shadow-xl transition-shadow">
               <CardHeader>
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-                  <CardTitle className="text-xl md:text-2xl leading-tight">
-                    {project.title}
-                  </CardTitle>
+                  <div className="flex items-start gap-3 flex-1">
+                    <CardTitle className="text-xl md:text-2xl leading-tight flex-1">
+                      {project.title}
+                    </CardTitle>
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-accent hover:text-accent/80 transition-colors mt-1"
+                      aria-label="View project on GitHub"
+                    >
+                      <ExternalLink className="w-5 h-5" />
+                    </a>
+                  </div>
                   <span className="text-muted-foreground font-medium whitespace-nowrap">
                     {project.date}
                   </span>
